@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <random>
 using namespace std;
 
 //–â‘è•¶‚ğ‚Ü‚Æ‚ß‚é\‘¢‘Ì
@@ -11,12 +12,31 @@ struct Question
 
 int main()
 {
-	Question question[] =
-	{
-		{"13 * (-5)", 13 * -5},
-		{"(-27) € (-3)", -27 / -3},
-		{"7 - (4 + 2) € 2", 7 - (4 + 2) / 2},
-	};
+	Question question[3];
+	random_device rd;
+	mt19937 rand(rd());
+
+	//Š|‚¯Z
+
+	int x = uniform_int_distribution<>(1, 30)(rand);
+	int y = uniform_int_distribution<>(1, 20)(rand);
+	question[0].q = to_string(x) + "~" + to_string(y);
+	question[0].a = x * y;
+
+	//Š„‚èZ
+	x = uniform_int_distribution<>(1, 30)(rand);
+	y = uniform_int_distribution<>(1, 20)(rand);
+	question[1].q = to_string(x) + "€" + to_string(y);
+	question[1].a = x / y;
+
+	//•¡G‚È®
+	x = uniform_int_distribution<>(1, 100)(rand);
+	y = uniform_int_distribution<>(1, 10)(rand);
+	int z = uniform_int_distribution<>(1, 10)(rand);
+	int w = uniform_int_distribution<>(1, 10)(rand);
+	question[2].q =
+		to_string(x) + "-(" + to_string(y) + "+" + to_string(z) + ")€" + to_string(w);
+	question[2].a = x - (y + z) / w;
 
 	cout << "[ƒŠƒNƒ‹[ƒgŒ±‘ÎôƒNƒCƒY]\n";
 
