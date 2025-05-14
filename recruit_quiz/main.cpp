@@ -48,22 +48,25 @@ int main()
 	y = uniform_int_distribution<>(1, 5)(rand) * 3;
 	question.push_back({ "底面の半径" + to_string(x) + "cm、高さ" + to_string(y) + "cmの円錐がある。\n" + "この円錐の体積をXπcm^3とする。Xの値を求めよ。", x * x * y / 3 });
 
-	cout << "[リクルート試験対策クイズ]\n";
+	//球の体積
+	x = uniform_int_distribution<>(1, 5)(rand) * 3;
+	question.push_back({ "球の半径" + to_string(x) + "cmの球がある。\n" + "この球の体積をXπcm^3とする。Xの値を求めよ。", x * x * x * 4 / 3 });
+
+	std::cout << "[リクルート試験対策クイズ]\n";
 
 	for (const auto& e : question)
 	{
-		cout << e.q << "\n";
+		std::cout << e.q << "\n";
 		int answer;
 		cin >> answer;
 
 		if (answer == e.a)
 		{
-			cout << "正解！\n";
+			std::cout << "正解！\n";
 		}
 		else
 		{
-			cout << "間違い！正解は" << e.a << "\n";
-
+			std::cout << "間違い！正解は" << e.a << "\n";
 		}
 	}	//for question
 }
