@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 
 // –â‘è•¶‚ğ‚Ü‚Æ‚ß‚é\‘¢‘Ì
