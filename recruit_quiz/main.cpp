@@ -1,15 +1,10 @@
+#include "question.h"
 #include <iostream>
 #include <string>
 #include <vector>
 #include <random>
 using namespace std;
 
-//問題文をまとめる構造体
-struct Question
-{
-	string q;	//問題文
-	string a;	//アンサー
-};
 
 //最大公約数を求める
 int gcd(int a, int b)
@@ -85,6 +80,10 @@ int main()
 	x = uniform_int_distribution<>(3, 6)(rand);
 	y = uniform_int_distribution<>(1, x)(rand);
 	z = 1;
+	for (int i = 0; i < y; i++)
+	{
+		z *= x - i;
+	}
 	for (int i = 0; i < y; i++)
 	{
 		z /= y - i;
